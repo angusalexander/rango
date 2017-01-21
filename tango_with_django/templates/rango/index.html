@@ -10,7 +10,9 @@
 	
 	<body>
 		<h1>Rango says...</h1>
-		<div>hey there partner!</div>
+		<div>hey there 
+		{% if user.is_authenticated %} {{ user.username }}
+		{% else %} partner! {% endif %}</div>
 
 		<div>
 		<h2>Most Liked Categories</h2>
@@ -53,6 +55,7 @@
 		<div>
 			<a href="/rango/about/">About Rango</a><br/>
 			<a href="/rango/add_category/">Add a new Category</a><br/>
+			<a href="/rango/login/">Login</a><br/>
 			<a href="/rango/register/">Register Here</a><br/>
 			<img src="{% static "images/rango.jpg" %}"
 			alt="Picture of Rango" />
