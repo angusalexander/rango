@@ -18,8 +18,12 @@
 		<ul>
 			{% for category in categories %}
 				<li>
-				<a href="/rango/category/{{ category.slug }}">
-				{{ category.name }}</a>
+				{% if category %}
+					<a href="/rango/category/{{ category.slug }}">
+					{{ category.name }}</a>
+				{% else %}
+					A category by this name does not exist
+				{% endif %}
 				</li>
 			{% endfor %}
 		</ul>
@@ -48,6 +52,7 @@
 		</div>
 		<div>
 			<a href="/rango/about/">About Rango</a><br/>
+			<a href="/rango/add_category/">Add a new Category</a><br/>
 			<img src="{% static "images/rango.jpg" %}"
 			alt="Picture of Rango" />
 		</div>
