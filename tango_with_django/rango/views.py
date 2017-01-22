@@ -38,7 +38,12 @@ def index(request):
     return response
     
 def about(request):
-    context_dict = {}
+    count = request.session.get("visits")
+
+    if not count:
+        count = 0
+
+    context_dict = {"visits":count}
     return render(request, "rango/about.html", context = context_dict)
 
 def show_category(request, category_name_slug):
