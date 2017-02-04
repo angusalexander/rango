@@ -16,7 +16,7 @@ def index(request):
 
     visits = request.session.get("visits")
     if not visits:
-        visits = 0
+        visits = 1
     reset_last_visit_time = False
 
     last_visit = request.session.get("last_visit")
@@ -41,7 +41,7 @@ def about(request):
     count = request.session.get("visits")
 
     if not count:
-        count = 0
+        count = 1
 
     context_dict = {"visits":count}
     return render(request, "rango/about.html", context = context_dict)
